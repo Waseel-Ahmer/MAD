@@ -6,11 +6,12 @@ void printWelcome(String appName) {
 String generateCode(String title) =>
     title.substring(0, 2).toUpperCase() + '101';
 
-void main() {
+void main(List<String> args) {
+  //implemented the optional CLI arguments task
   printWelcome('Course Roster Manager');
   const int maxCapacity = 4;
   final DateTime createdAt = DateTime.now();
-  String courseTitle = 'CS201: Mobile App Development';
+  String courseTitle = args[0];
   int capacity = maxCapacity;
   double creditHours = 3.0;
   bool isOpen = true;
@@ -111,6 +112,32 @@ void main() {
     print(anc);
   }
 }
+
+/* optional task output
+1. Tooling
+dart format . output: Formatted 1 file (0 changed) in 0.01 seconds.
+dart analyze output: 
+Analyzing MADTask2...
+
+warning • courseRoster.dart:13:18 • The value of the local variable 'createdAt' isn't used. Try removing the variable or
+          using it. • unused_local_variable
+warning • courseRoster.dart:16:10 • The value of the local variable 'creditHours' isn't used. Try removing the variable
+          or using it. • unused_local_variable
+warning • courseRoster.dart:27:15 • The value of the local variable 'enrollmentCode' isn't used. Try removing the
+          variable or using it. • unused_local_variable
+warning • courseRoster.dart:30:24 • Dead code. Try removing the code, or fixing the code before it so that it can be
+          reached. • dead_code
+warning • courseRoster.dart:39:10 • The value of the local variable 'courseDescription' isn't used. Try removing the
+          variable or using it. • unused_local_variable
+warning • courseRoster.dart:66:13 • Dead code. Try removing the code, or fixing the code before it so that it can be
+          reached. • dead_code
+warning • courseRoster.dart:93:40 • Dead code. Try removing the code, or fixing the code before it so that it can be
+          reached. • dead_code
+warning • courseRoster.dart:106:18 • Dead code. Try removing the code, or fixing the code before it so that it can be
+          reached. • dead_code
+
+8 issues found.
+*/
 // checklist confirmations
 //dart analyze only shows 8 warnings
 // Used at least one const, one final, and one plain var
